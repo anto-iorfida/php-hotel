@@ -54,9 +54,9 @@
    <title>Document</title>
 </head>
 <body>
-<?php
+<!-- <?php
 foreach ($hotels as $hotel) {
-    echo "<div class='hotel'>";  
+    echo "<div>";  
     echo "<h2>" . $hotel['name'] . "</h2>";
     echo "<p>" . $hotel['description'] . "</p>";
     echo "<ul>";
@@ -71,7 +71,33 @@ foreach ($hotels as $hotel) {
     echo "</ul>";
     echo "</div>";
 }
+?> -->
+
+<table class="table table-bordered border-primary">
+  <thead>
+    <tr class="table-primary">
+      <th scope="col">Nome HOTEL</th>
+      <th scope="col">Descrizione</th>
+      <th scope="col">Parcheggio</th>
+      <th scope="col">Voto</th>
+      <th scope="col">Distanza Centro</th>
+    </tr>
+  </thead>
+  <tbody>
+  <?php
+foreach ($hotels as $hotel) {
+    echo "<tr>";  
+    echo "<th>" . $hotel['name'] . "</th>";
+    echo "<td>" . $hotel['description'] . "</td>";
+    echo "<td>" . ($hotel['parking'] ? "Parcheggio disponibile" :  "Nessun parcheggio") . "</td>";
+    echo "<td>" . $hotel['vote'] . "</td>";
+    echo "<td>Distanza dal centro:" . $hotel['distance_to_center'] . "km</td>";
+    echo "</tr>";
+}
 ?>
+
+  </tbody>
+</table>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
