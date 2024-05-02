@@ -40,6 +40,8 @@
 
     ];
 
+
+
 ?>
 
 <!DOCTYPE html>
@@ -52,6 +54,24 @@
    <title>Document</title>
 </head>
 <body>
+<?php
+foreach ($hotels as $hotel) {
+    echo "<div class='hotel'>";  
+    echo "<h2>" . $hotel['name'] . "</h2>";
+    echo "<p>" . $hotel['description'] . "</p>";
+    echo "<ul>";
+    // if ($hotel['parking']) {
+    //     echo "<li>Parcheggio disponibile</li>";
+    // } else {
+    //     echo "<li>Nessun parcheggio</li>";
+    // }
+    echo "<li>" . ($hotel['parking'] ? "Parcheggio disponibile" :  "Nessun parcheggio") . "</li>";
+    echo "<li>Voto: " . $hotel['vote'] . "</li>";
+    echo "<li>Distanza dal centro: " . $hotel['distance_to_center'] . " km</li>";
+    echo "</ul>";
+    echo "</div>";
+}
+?>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
